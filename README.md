@@ -9,9 +9,28 @@ It still found the goblins, but this highlights the weakness of color detection.
 
 Resource: Code taken from https://notebooks.azure.com/Microsoft-Learning/libraries/dev290x
 
-## Detection with CNN 
-Let's see if a CNN can detect a goblin without giving a human as a false positive. To prevent overfitting, I used different goblins and humans with different outfits on different tiles. 
+## Detection with Convolutional Neural Network 
+Goal: see if I can successfuly use a CNN can detect a goblin without giving a human as a false positive. 
 
+
+#### Step 1: Homography
+The game does not offer a perfect straight down bird's eye view, so to split the screen into grids of equal size to take images for training data and object detection, homography was used. [Left is the original image that a player would see. Right is after transformation.](https://gyazo.com/3b5bd74e1d315635736e81d6835e2303) The most noticeable is in the top left and right corners. The overlaid grid is approximate because I did not get the pixel points used in the transformation precisely, but for this application it is close enough because the objects in the game always stand at the center of a tile unless they are in motion to another tile.
+
+About homography: https://www.learnopencv.com/homography-examples-using-opencv-python-c/
+
+#### Step 2: Gather Training Data
+To remove the effect of color and focus on spatial relationships (do not want to let the neural network identify green things as goblins), images as taken in grayscale. In 'gather_data.py,' the click2crop function is run. The top left corner of a grid is doubleclicked and the content of that grid is saved. 
+To prevent overfitting, I used different goblins and humans with different outfits on different tiles. 
 When gathering training data and performing inference, the camera angle is held constant. 
+
+About mouse handling: 
+https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_mouse_handling/py_mouse_handling.html
+https://www.pyimagesearch.com/2015/03/09/capturing-mouse-click-events-with-python-and-opencv/
+https://docs.opencv.org/3.1.0/d7/dfc/group__highgui.html
+
+
+#### Step 3: Training
+
+During training, the _______ function from Keras is used to preprocess the image. Images are rotated 90, 180 and 270 degrees to create more  data.
 
 tbc...
