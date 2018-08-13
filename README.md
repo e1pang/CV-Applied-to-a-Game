@@ -14,9 +14,16 @@ Goal: see if I can successfuly use a CNN can detect a goblin without giving a hu
 
 
 #### Step 1: Homography
-The game does not offer a perfect straight down bird's eye view, so to split the screen into grids of equal size to take images for training data and object detection, homography was used. [Left is the original image that a player would see. Right is after transformation.](https://gyazo.com/3b5bd74e1d315635736e81d6835e2303) The most noticeable is in the top left and right corners. The overlaid grid is approximate because I did not get the pixel points used in the transformation precisely, but for this application it is close enough because the objects in the game always stand at the center of a tile unless they are in motion to another tile.
+The game does not offer a perfect straight down bird's eye view, so to split the screen into grids of equal size to take images for training data and object detection, homography was used. 
+[Before](https://gyazo.com/73be4f3a2bcf759497c6ace0cc6f6616) versus [after.](https://gyazo.com/417e2edead71a2526dd30d0d56e6843b)
+
+Before, there is a slight offset between the game tiles and the overlaid grid due to the camera angle.
+After, the overlaid grid matches the tiles marvelously. 
 
 About homography: https://www.learnopencv.com/homography-examples-using-opencv-python-c/
+
+Another example:
+[Left is the original image that a player would see. Right is after transformation.](https://gyazo.com/3b5bd74e1d315635736e81d6835e2303) The most noticeable is in the top left and right corners.
 
 #### Step 2: Gather Training Data
 To remove the effect of color and focus on spatial relationships (do not want to let the neural network identify green things as goblins), images as taken in grayscale. In 'gather_data.py,' the click2crop function is run. The top left corner of a grid is doubleclicked and the content of that grid is saved. 
