@@ -12,7 +12,6 @@ Resource: Code taken from https://notebooks.azure.com/Microsoft-Learning/librari
 ## Detection with Convolutional Neural Network 
 Goal: see if I can successfuly use a CNN can detect a goblin without giving a human as a false positive. 
 
-
 #### Step 1: Homography
 The game does not offer a perfect straight down bird's eye view, so to split the screen into grids of equal size to take images for training data and object detection, homography was used. 
 [Before](https://gyazo.com/73be4f3a2bcf759497c6ace0cc6f6616) versus [after.](https://gyazo.com/417e2edead71a2526dd30d0d56e6843b)
@@ -29,6 +28,7 @@ Another example:
 To remove the effect of color and focus on spatial relationships (do not want to let the neural network identify green things as goblins), images as taken in grayscale. In 'gather_data.py,' the click2crop function is run. The top left corner of a grid is doubleclicked and the content of that grid is saved. 
 To prevent overfitting, I used different goblins and humans with different outfits on different tiles. 
 When gathering training data and performing inference, the camera angle is held constant. 
+To isolate the CNN's ability to recognize spatial relationships, images are collected in grayscale.
 
 About mouse handling: 
 https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_mouse_handling/py_mouse_handling.html
@@ -38,6 +38,8 @@ https://docs.opencv.org/3.1.0/d7/dfc/group__highgui.html
 
 #### Step 3: Training
 
-During training, the _______ function from Keras is used to preprocess the image. Images are rotated 90, 180 and 270 degrees to create more  data.
+For training, images will randomly be flipped horizontally to effectively double the amount of training data.
+https://keras.io/preprocessing/image/
+https://medium.com/@vijayabhaskar96/tutorial-image-classification-with-keras-flow-from-directory-and-generators-95f75ebe5720
 
 tbc...
