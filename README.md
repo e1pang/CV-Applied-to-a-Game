@@ -35,11 +35,12 @@ https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_mouse_handling/py_mo
 https://www.pyimagesearch.com/2015/03/09/capturing-mouse-click-events-with-python-and-opencv/
 https://docs.opencv.org/3.1.0/d7/dfc/group__highgui.html
 
-
 #### Step 3: Training
 
-For training, images will randomly be flipped horizontally to effectively double the amount of training data.
-https://keras.io/preprocessing/image/
-https://medium.com/@vijayabhaskar96/tutorial-image-classification-with-keras-flow-from-directory-and-generators-95f75ebe5720
+Code for the model: https://gyazo.com/72d21048232fe0de3d6396e800c7b88d
+Result: https://gyazo.com/d104d5cfbc5cf4cfd8b37046153b726c
+Loss Plot: https://gyazo.com/fa6e109ee96b576bd97cd86632c33996
+
+#### Step 4: Apply Model to Real Time Detection
 
 tbc...
