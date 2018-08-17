@@ -12,20 +12,16 @@ Resource: Code taken from https://notebooks.azure.com/Microsoft-Learning/librari
 ## Detection with Convolutional Neural Network 
 Goal: see if I can successfuly use a CNN can detect a goblin without giving a human as a false positive. 
 
-Result: Failure, I realized that from a top-down view, goblins look like old, hunched over humans. 
+Result: Success!  
+ 
+-[Demo 1](https://gyazo.com/62ded2ce85fcf49efdf4d46dbf180826)
+
+-[Demo 2](https://gyazo.com/e6248701c963cdeb19ee59f74ab6f368)
   
--[Demo 1](https://gyazo.com/31ee4bb2af4e8d202d13d3dd8ccc9b68)
+Before I got a model that worked, I had models that failed. I realized that from a top-down view, goblins look like old, hunched over humans, so I changed the training data to include more humans, which had the effect of increasing the priority of the model training towards not incorrectly marking humans as goblins.
+  
+-[A failed model - At least it did not pick up the trees and fences](https://gyazo.com/515d5688d214f2d3c001e8f5ae46bfdb)
 
--[Demo 2](https://gyazo.com/541e81711d0151ad02e46e8bb545fb0c)
-
--[Demo 3](https://gyazo.com/a8da0f8a0efabb118ee94bedd58ac6b8)
-
--[Demo 4 - At least it did not pick up the trees and fences](https://gyazo.com/515d5688d214f2d3c001e8f5ae46bfdb)
-
-Possible fixes currently being attempted:    
-  1) Objects are squeezed into 50 x 50 pixel images (small!), so dropout layers may have hurt the model by removing too much.
-  2) Increase the number of convolution filters to differentiate between humans and goblins.
-  3) Change training data to include more humans.
  
 Comparison to thresholding: With thresholding I found the goblins by looking for the n-largest objects that passed the threshold. This meant that if I set n=3 and there were 8 goblins, only 3 would be marked. If I set n=8 and there were 3 goblins, 3 goblins and 5 green-ish things in the the background would be marked. The CNN approach is not limited by this. 
 
