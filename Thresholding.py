@@ -1,5 +1,11 @@
 """
 Code from:  https://notebooks.azure.com/Microsoft-Learning/libraries/dev290x
+
+I wanted to try something more interesting, but
+an easier and less roundabout way would have been to specify the exact color desired to be masked: 
+1) https://docs.opencv.org/3.4/da/d97/tutorial_threshold_inRange.html
+2) https://www.pyimagesearch.com/2014/08/04/opencv-python-color-detection/
+3) https://medium.com/@ckyrkou/color-thresholding-in-opencv-91049607b06d
 """
 from PIL import ImageGrab
 import cv2
