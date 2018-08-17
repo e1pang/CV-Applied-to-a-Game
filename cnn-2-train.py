@@ -21,6 +21,7 @@ def show_generator_images(generator, gen_steps, gray = True):
         for img in images:  
             if gray:
                 cv2.imshow(str(labels[i]),
+                      #need to convert to a type cv2 can use
                       np.array(img*255, dtype = np.uint8))
             else:
                 cv2.imshow(str(labels[i]),
