@@ -18,7 +18,7 @@ Result: Success!
 
 -[Demo 2](https://gyazo.com/e6248701c963cdeb19ee59f74ab6f368)
   
-Before I got a model that worked, I had models that failed. I realized that from a top-down view, goblins look like old, hunched over humans, so I changed the training data to include more humans, which had the effect of increasing the priority of the model training towards not incorrectly marking humans as goblins.
+Before I got a model that worked, I had models that failed. I realized that from a top-down view, goblins look like old, hunched over humans. The model had difficulty differentiating humans from goblins (whereas recognizing the background was no problem at all), so I updated the training data to include more humans and less background, which had the effect of increasing the priority of the model training towards not incorrectly marking humans as goblins.
   
 -[A failed model - At least it did not pick up the trees and fences](https://gyazo.com/515d5688d214f2d3c001e8f5ae46bfdb)
 
